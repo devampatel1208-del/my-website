@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grid Pattern Background */
+@layer utilities {
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* Focus Visible Styles */
+@layer components {
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+/* Smooth Transitions */
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply !transition-none;
+  }
+}
